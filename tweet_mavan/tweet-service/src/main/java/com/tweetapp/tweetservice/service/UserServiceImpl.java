@@ -14,27 +14,39 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public void userMenu() {
+		System.out.println();
 		System.out.println("Enter Your choice :");
 		System.out.println("1. Login");
 		System.out.println("2. Register");
 		System.out.println("3. Forgot Password");
 		Scanner sc = new Scanner(System.in);
-		int choice = sc.nextInt();
-		switch (choice) {
-		case 1:
-			System.out.println("!!! Login !!!");
-			login();
-			break;
-		case 2:
-			registerUser();
-			break;
-		case 3:
-			forgotPassword();
-			break;
-		default:
-			System.out.println("Please enter a vaild choice");
+		try {
+			int choice = sc.nextInt();
+			switch (choice) {
+			case 1:
+				System.out.println();
+				System.out.println("!!! Login !!!");
+				login();
+				break;
+			case 2:
+				System.out.println();
+				System.out.println("!!! Register !!!");
+				registerUser();
+				break;
+			case 3:
+				System.out.println();
+				System.out.println("!!! Forgot Password !!!");
+				forgotPassword();
+				break;
+			default:
+				System.out.println("Please enter a vaild choice");
+				userMenu();
+			}
+		} catch (Exception e) {
+			System.out.println("Invalid Input");
 			userMenu();
 		}
+
 		sc.close();
 	}
 
@@ -72,6 +84,7 @@ public class UserServiceImpl implements UserService {
 		String firstName = sc.nextLine();
 		String gender = getGender(sc);
 		System.out.println("Enter the password:");
+		sc.nextLine();
 		String password = sc.nextLine();
 		User user = new User(firstName, gender, email, password, false);
 		UserDao userDao = new UserDaoImpl();
@@ -152,7 +165,13 @@ public class UserServiceImpl implements UserService {
 		System.out.println("1.Male");
 		System.out.println("2.Female");
 		System.out.println("3.Other");
-		int choice = sc.nextInt();
+		int choice;
+		try {
+			choice = sc.nextInt();
+		} catch (Exception e) {
+			System.out.println("Invalid Input");
+			return getEmail(sc);
+		}
 		switch (choice) {
 		case 1:
 			return "M";
@@ -161,7 +180,7 @@ public class UserServiceImpl implements UserService {
 		case 3:
 			return "O";
 		default:
-			System.out.println("InVaild input");
+			System.out.println("Invaild input");
 			return getEmail(sc);
 		}
 	}

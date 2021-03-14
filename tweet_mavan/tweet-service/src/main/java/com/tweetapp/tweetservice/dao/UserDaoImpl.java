@@ -11,6 +11,10 @@ import com.tweetapp.tweetservice.model.User;
 import com.tweetapp.tweetservice.util.DbConnection;
 import com.tweetapp.tweetservice.util.TweetConstant;
 
+/**
+ * @author Chanthanu
+ *
+ */
 public class UserDaoImpl implements UserDao {
 
 	Connection connection;
@@ -35,13 +39,13 @@ public class UserDaoImpl implements UserDao {
 				users.add(user);
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			// e.printStackTrace();
 			throw new RuntimeException("Touble in getting All User details");
 		} finally {
 			try {
 				closeConnection();
 			} catch (SQLException e) {
-				e.printStackTrace();
+				// e.printStackTrace();
 				throw new RuntimeException("Connection not closed properly");
 			}
 		}
@@ -60,13 +64,13 @@ public class UserDaoImpl implements UserDao {
 			preparedStatment.setString(5, "N");
 			preparedStatment.executeUpdate();
 		} catch (SQLException e) {
-			e.printStackTrace();
+			// e.printStackTrace();
 			throw new RuntimeException("Touble in registering User");
 		} finally {
 			try {
 				connection.close();
 			} catch (SQLException e) {
-				e.printStackTrace();
+				// e.printStackTrace();
 				throw new RuntimeException("Connection is  not closed properly");
 			}
 		}
@@ -93,13 +97,13 @@ public class UserDaoImpl implements UserDao {
 				return user;
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			// // e.printStackTrace();
 			throw new RuntimeException("Touble in getting user by user email id");
 		} finally {
 			try {
 				connection.close();
 			} catch (SQLException e) {
-				e.printStackTrace();
+				// e.printStackTrace();
 				throw new RuntimeException("Connection is  not closed properly");
 			}
 		}
@@ -114,13 +118,13 @@ public class UserDaoImpl implements UserDao {
 			preparedStatment.setInt(2, userId);
 			preparedStatment.executeUpdate();
 		} catch (SQLException e) {
-			e.printStackTrace();
+			// e.printStackTrace();
 			throw new RuntimeException("Touble in setting logde in status");
 		} finally {
 			try {
 				connection.close();
 			} catch (SQLException e) {
-				e.printStackTrace();
+				// e.printStackTrace();
 				throw new RuntimeException("Connection is  not closed properly");
 			}
 		}
@@ -135,13 +139,13 @@ public class UserDaoImpl implements UserDao {
 			preparedStatment.setInt(2, userId);
 			preparedStatment.executeUpdate();
 		} catch (SQLException e) {
-			e.printStackTrace();
+			// e.printStackTrace();
 			throw new RuntimeException("Touble in updating new password");
 		} finally {
 			try {
 				connection.close();
 			} catch (SQLException e) {
-				e.printStackTrace();
+				// e.printStackTrace();
 				throw new RuntimeException("Connection is  not closed properly");
 			}
 		}
@@ -168,13 +172,13 @@ public class UserDaoImpl implements UserDao {
 				return user;
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			// e.printStackTrace();
 			throw new RuntimeException("Touble in getting user by logged in indicator");
 		} finally {
 			try {
 				connection.close();
 			} catch (SQLException e) {
-				e.printStackTrace();
+				// e.printStackTrace();
 				throw new RuntimeException("Connection is  not closed properly");
 			}
 		}

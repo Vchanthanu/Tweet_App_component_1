@@ -8,7 +8,6 @@
 	<groupId>com.tweetapp</groupId>
 	<artifactId>tweet-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-
 	<name>tweet-service</name>
 	<!-- FIXME change it to the project's website -->
 	<url>http://www.example.com</url>
@@ -75,6 +74,19 @@
 				<plugin>
 					<artifactId>maven-project-info-reports-plugin</artifactId>
 					<version>3.0.0</version>
+				</plugin>
+				<plugin>
+					<!-- Build an executable JAR -->
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-jar-plugin</artifactId>
+					<version>3.1.0</version>
+					<configuration>
+						<archive>
+							<manifest>
+								<mainClass>com.tweetapp.tweetservice.App</mainClass>
+							</manifest>
+						</archive>
+					</configuration>
 				</plugin>
 			</plugins>
 		</pluginManagement>

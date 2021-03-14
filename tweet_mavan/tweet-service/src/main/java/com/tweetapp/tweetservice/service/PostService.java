@@ -20,12 +20,24 @@ public interface PostService {
 	 */
 	public void postMenu();
 
+	/*
+	 * posting Tweet
+	 */
 	public void addPost();
 
+	/*
+	 * Get all tweet of user
+	 */
 	public void getTweetByUser();
 
+	/*
+	 * Get all Tweets
+	 */
 	public void getAllTweet();
 
+	/*
+	 * Get all registered users
+	 */
 	public void getAllUser();
 
 }

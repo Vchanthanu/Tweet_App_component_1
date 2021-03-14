@@ -2,22 +2,25 @@ package com.tweetapp.tweetservice.util;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
+//import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
-
+/**
+ * @author Chanthanu
+ *
+ */
 public class DbConnection {
 
 	public static Connection getDbConnection() {
 		Connection connection = null;
 		try {
 //			InputStream inputStream = DbConnection.class
-//					.getResourceAsStream("src/main/java/db.properties");
-//			System.out.print(properties);
+//					.getResourceAsStream("/db.properties");
 			Properties properties = new Properties();
+//			properties.load(inputStream);
 			properties.load(new FileInputStream("src/main/java/com/tweetapp/tweetservice/util/db.properties"));
 			String driver = properties.getProperty("driver");
 			String url = properties.getProperty("connection-url");
@@ -26,13 +29,13 @@ public class DbConnection {
 			Class.forName(driver);
 			connection = DriverManager.getConnection(url, user, password);
 		} catch (IOException e) {
-			e.printStackTrace();
+			// e.printStackTrace();
 			throw new RuntimeException("Input Output exception");
 		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
+			// e.printStackTrace();
 			throw new RuntimeException("Class file not found Exception");
 		} catch (SQLException e) {
-			e.printStackTrace();
+			// e.printStackTrace();
 			throw new RuntimeException("Sql Exception");
 		}
 		return connection;

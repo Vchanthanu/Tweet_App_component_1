@@ -1,5 +1,9 @@
 package com.tweetapp.tweetservice.dto;
 
+/**
+ * @author Chanthanu
+ *
+ */
 public class PostDto {
 
 	private String tweet;
@@ -34,7 +38,7 @@ public class PostDto {
 
 	@Override
 	public String toString() {
-		return userName + " : " + tweet;
+		return userName + " - by " + tweet;
 	}
 
 }
